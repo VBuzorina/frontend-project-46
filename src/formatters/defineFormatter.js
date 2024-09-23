@@ -4,8 +4,7 @@ import plain from './plain.js';
 const formatters = {
   stylish: (tree) => stylish(tree),
   plain: (tree) => plain(tree),
-  json: (tree, replacer = null, space = 4) =>
-    JSON.stringify(tree, replacer, space),
+  json: (tree, replacer = null, space = 4) => JSON.stringify(tree, replacer, space),
 };
 
 const defineFormatter = (tree, formatter) => {

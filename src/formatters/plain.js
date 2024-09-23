@@ -10,7 +10,14 @@ const getValue = (value) => {
 
 const plain = (tree) => {
   const iter = (node) => {
-    const { key, type, value, oldValue, newValue, children } = node;
+    const { 
+      key, 
+      type, 
+      value, 
+      oldValue, 
+      newValue, 
+      children
+    } = node;
     switch (node.type) {
       case 'added':
         return `Property '${key}' was added with value: ${getValue(value)}`;

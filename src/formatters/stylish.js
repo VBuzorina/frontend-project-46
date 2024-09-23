@@ -34,7 +34,13 @@ const stylish = (tree, spacesCount = 4) => {
     const currentIndent = blank.repeat(indentSize - leftIndent);
     const lastIndent = blank.repeat(indentSize);
 
-    const { key, type, value, oldValue, newValue } = node;
+    const { 
+      key, 
+      type, 
+      value, 
+      oldValue, 
+      newValue 
+    } = node;
 
     if (node.type !== 'nested' && node.type !== 'updated') {
       return `${currentIndent}${types[type]}${key}: ${stringify(value, depth)}`;
