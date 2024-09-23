@@ -1,5 +1,5 @@
 import path from 'path';
-import {fileURLToPath} from 'url';
+import { fileURLToPath } from 'url';
 import fs from 'node:fs';
 import genDiff from '../src/index.js';
 

@@ -10,7 +10,7 @@ const getValue = value => {
 
 const plain = tree => {
   const iter = node => {
-    const {key, type, value, oldValue, newValue, children} = node;
+    const { key, type, value, oldValue, newValue, children } = node;
     switch (node.type) {
       case 'added':
         return `Property '${key}' was added with value: ${getValue(value)}`;
@@ -25,7 +25,7 @@ const plain = tree => {
       case 'nested':
         return children.flatMap(item => {
           const newKey = `${key}.${item.key}`;
-          const newEl = {...item, key: newKey};
+          const newEl = { ...item, key: newKey };
           return iter(newEl);
         });
       default:
