@@ -34,12 +34,12 @@ const stylish = (tree, spacesCount = 4) => {
     const currentIndent = blank.repeat(indentSize - leftIndent);
     const lastIndent = blank.repeat(indentSize);
 
-    const { 
-      key, 
-      type, 
-      value, 
-      oldValue, 
-      newValue 
+    const {
+      key,
+      type,
+      value,
+      oldValue,
+      newValue,
     } = node;
 
     if (node.type !== 'nested' && node.type !== 'updated') {
