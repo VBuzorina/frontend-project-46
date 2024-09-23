@@ -4,9 +4,9 @@ import parse from './parse.js';
 import compare from './compare.js';
 import defineFormatter from './formatters/defineFormatter.js';
 
-const getFullPath = filepath => path.resolve(process.cwd(), filepath);
-const getFileFormat = filepath => path.extname(filepath).slice(1);
-const readFile = filepath => fs.readFileSync(filepath, 'utf8');
+const getFullPath = (filepath) => path.resolve(process.cwd(), filepath);
+const getFileFormat = (filepath) => path.extname(filepath).slice(1);
+const readFile = (filepath) => fs.readFileSync(filepath, 'utf8');
 
 const genDiff = (filePath1, filePath2, formatName = 'stylish') => {
   const fullPath1 = getFullPath(filePath1);

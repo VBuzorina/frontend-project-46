@@ -3,7 +3,7 @@ const types = {
   removed: '- ',
   unchanged: '  ',
   nested: '  ',
-  updated: ['- ', '+ ']
+  updated: ['- ', '+ '],
 };
 
 const stringify = (value, currentDepth, spacesCount = 4) => {
@@ -17,7 +17,7 @@ const stringify = (value, currentDepth, spacesCount = 4) => {
     const currentIndent = blank.repeat(indentSize);
     const lastIndent = blank.repeat(indentSize - spacesCount);
     const lines = Object.entries(currentValue).map(
-      ([key, val]) => `${currentIndent}${key}: ${iter(val, depth + 1)}`
+      ([key, val]) => `${currentIndent}${key}: ${iter(val, depth + 1)}`,
     );
 
     return `{\n${lines.join('\n')}\n${lastIndent}}`;
@@ -42,21 +42,21 @@ const stylish = (tree, spacesCount = 4) => {
     if (node.type === 'updated') {
       return `${currentIndent}${types[type][0]}${key}: ${stringify(
         oldValue,
-        depth
+        depth,
       )}\n${currentIndent}${types[type][1]}${key}: ${stringify(
         newValue,
-        depth
+        depth,
       )}`;
     }
     if (node.type === 'nested') {
       return `${currentIndent}${types[type]}${key}: {\n${node.children
-        .map(el => iter(el, depth + 1))
+        .map((el) => iter(el, depth + 1))
         .join('\n')}\n${lastIndent}}`;
     }
     throw new Error(`Invalid node type - ${type}`);
   };
 
-  return `{\n${tree.map(el => iter(el, 1)).join('\n')}\n}`;
+  return `{\n${tree.map((el) => iter(el, 1)).join('\n')}\n}`;
 };
 
 export default stylish;

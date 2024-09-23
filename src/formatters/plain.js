@@ -1,4 +1,4 @@
-const getValue = value => {
+const getValue = (value) => {
   if (typeof value === 'object' && value !== null) {
     return '[complex value]';
   }
@@ -8,22 +8,22 @@ const getValue = value => {
   return value;
 };
 
-const plain = tree => {
-  const iter = node => {
+const plain = (tree) => {
+  const iter = (node) => {
     const { key, type, value, oldValue, newValue, children } = node;
     switch (node.type) {
       case 'added':
         return `Property '${key}' was added with value: ${getValue(value)}`;
       case 'updated':
         return `Property '${key}' was updated. From ${getValue(
-          oldValue
+          oldValue,
         )} to ${getValue(newValue)}`;
       case 'unchanged':
         return [];
       case 'removed':
         return `Property '${key}' was removed`;
       case 'nested':
-        return children.flatMap(item => {
+        return children.flatMap((item) => {
           const newKey = `${key}.${item.key}`;
           const newEl = { ...item, key: newKey };
           return iter(newEl);

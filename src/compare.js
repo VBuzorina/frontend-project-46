@@ -11,7 +11,7 @@ const getKeys = (newData1, newData2) => {
 const compare = (data1, data2) => {
   const keys = getKeys(data1, data2);
 
-  const diffTree = keys.map(key => {
+  const diffTree = keys.map((key) => {
     if (!Object.hasOwn(data1, key)) {
       return { key, type: 'added', value: data2[key] };
     }
@@ -26,7 +26,7 @@ const compare = (data1, data2) => {
         key,
         type: 'updated',
         oldValue: data1[key],
-        newValue: data2[key]
+        newValue: data2[key],
       };
     }
     return { key, type: 'unchanged', value: data1[key] };
