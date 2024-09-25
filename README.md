@@ -28,3 +28,5 @@ Options:
 ```
 
 ### Пример запуска и использования
+
+[![asciicast](https://asciinema.org/a/2cAmPdQrdPzIypEUwjG062X0h.svg)](https://asciinema.org/a/2cAmPdQrdPzIypEUwjG062X0h)
